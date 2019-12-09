@@ -1,0 +1,9 @@
+<p>user-form works!</p>
+
+
+<form [formGroup]="addUserForm" (ngSubmit)="addUser()">
+
+    name: <input type="text" formControlName="name"><br>
+    username: <input type="text" formControlName="username"><br>
+    <button  >Add</button>
+</form>

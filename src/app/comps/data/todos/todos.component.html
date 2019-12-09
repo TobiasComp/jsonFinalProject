@@ -1,0 +1,26 @@
+<p>todos works!</p>
+
+<select name="" id="" (change)="choice($event)">
+    <option value="byUser">ByUser</option>
+    <option value="all">All</option>
+</select>
+
+<div *ngIf="display=='byUser'; else allTodos">
+    <ul *ngIf="todos">
+        <li *ngFor="let todo of todos; index as i ">
+            {{ i }}: {{todo.title}}
+        </li>
+    </ul>
+    <button>Add</button>
+</div>
+
+<ng-template #allTodos>
+    <div *ngIf="todoService.todos ">
+        <ul>
+            <li *ngFor="let todo of todoService.todos; index as i">
+                {{ i }}: {{ todo.title }}
+            </li>
+        </ul>
+    </div>
+</ng-template>
+

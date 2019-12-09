@@ -1,0 +1,9 @@
+<p>users works!</p>
+<div *ngIf="userService.users">
+    <ul>
+        <li *ngFor="let user of userService.users" routerLink='todos'>
+            <span (click)="updateUser(user)">{{ user.name }}</span>
+        </li>
+    </ul>
+</div>
+<button (click)="addUser()"> Add User</button>
