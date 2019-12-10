@@ -1,4 +1,3 @@
-<p>todos works!</p>
 
 <select name="" id="" (change)="choice($event)">
     <option value="byUser">ByUser</option>
@@ -11,7 +10,7 @@
             {{ i }}: {{todo.title}}
         </li>
     </ul>
-    <button>Add</button>
+    <button (click)="addTodoForm()">Add</button>
 </div>
 
 <ng-template #allTodos>

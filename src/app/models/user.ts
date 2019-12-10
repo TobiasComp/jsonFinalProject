@@ -1,3 +1,5 @@
+import { Base } from './base'
+
 // "id": 1,
 // "name": "Leanne Graham",
 // "username": "Bret",
@@ -10,8 +12,8 @@
 //   "geo": {
 //     "lat": "-37.3159",
 //     "lng": "81.1496"
-export class User {
-    "id":number
+export class User extends Base{
+    // "id":number
     "name": string
     "username": string
 }

@@ -3,6 +3,7 @@ import { TodoService } from 'src/app/services/todo.service';
 import { UserService } from 'src/app/services/user.service';
 import { Todo } from 'src/app/models/todo';
 import { JsonPipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todos',
@@ -13,16 +14,17 @@ export class TodosComponent implements OnInit {
   todos:Todo[]
   display:string
 
-  constructor(public todoService:TodoService, private userService:UserService) { }
+  constructor(public todoService:TodoService, private userService:UserService,
+    private router:Router) { }
 
   ngOnInit() {
     
     if (this.userService.currentUser){
       this.display = 'byUser'
-      this.todoService.getTodosByUser()
-        .subscribe(data => {          
-          this.todos = data as Todo[]
-        })  
+      this.todos = this.todoService.getTodosByUser()
+        // .subscribe(data => {          
+        //   this.todos = data as Todo[]
+        // })  
     }
     else  
       this.display = 'all'
@@ -36,6 +38,9 @@ export class TodosComponent implements OnInit {
       console.log("this is the value of display",this.display)
       console.log("this is the current user",this.userService.currentUser);
       
+    }
+    addTodoForm(){
+      this.router.navigateByUrl("addTodo")
     }
 
 }

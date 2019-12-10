@@ -20,10 +20,12 @@ export class TodoService {
     this.http.get(this.api)
       .subscribe(data => this.todos = data as Todo[])
   }
-
-  getTodosByUser():Observable<Todo[]>{
+  
+  getTodosByUser():Todo[]{
+    console.log("this.userService.currentUser.id",this.userService.currentUser.id);
+    console.log(this.todos.filter(todo => todo.userId==this.userService.currentUser.id));
     
-    return this.http.get<Todo[]>(this.api+"?userId="+this.userService.currentUser.id)
+    return this.todos.filter(todo => todo.userId==this.userService.currentUser.id)
   }
 }
 
