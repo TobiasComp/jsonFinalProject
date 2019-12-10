@@ -13,8 +13,8 @@ export class TodoService extends BaseServiceService<Todo> {
   api:string = "https://jsonplaceholder.typicode.com/todos";
   todos:Todo[]
 
-  constructor(  private userService:UserService) { 
-    super(http,"todos");
+  constructor(  __http:HttpClient, private userService:UserService) { 
+    super(__http,"todos");
     this.getData().subscribe(data=>this.todos=data as Todo[])
   }
   
