@@ -1,5 +1,7 @@
-export class Album {
+import { Base } from './base'
+
+export class Album extends Base{
     "userId": number
-    "id":number
+    // "id":number
     "title": string
 }
