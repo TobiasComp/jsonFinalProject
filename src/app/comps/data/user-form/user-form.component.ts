@@ -25,8 +25,8 @@ export class UserFormComponent implements OnInit {
   addUser(){
     
     let user = this.addUserForm.value
-    user.id = this.userService.users.length+1
-    this.userService.users.push(user)
+    user.id = this.userService.data.length+1
+    this.userService.data.push(user)
     this.router.navigateByUrl("users")
   }
 }

@@ -11,11 +11,11 @@ import { BaseServiceService } from './base-service.service';
 export class TodoService extends BaseServiceService<Todo> {
   
   api:string = "https://jsonplaceholder.typicode.com/todos";
-  todos:Todo[]
+  // todos:Todo[]
 
   constructor(  __http:HttpClient, private userService:UserService) { 
     super(__http,"todos");
-    this.getData().subscribe(data=>this.todos=data as Todo[])
+    this.getData().subscribe(data=>this.data=data as Todo[])
   }
   
   // getAllTodos() {
@@ -25,9 +25,9 @@ export class TodoService extends BaseServiceService<Todo> {
   
   getTodosByUser():Todo[]{
     console.log("this.userService.currentUser.id",this.userService.currentUser.id);
-    console.log(this.todos.filter(todo => todo.userId==this.userService.currentUser.id));
+    console.log(this.data.filter(todo => todo.userId==this.userService.currentUser.id));
     
-    return this.todos.filter(todo => todo.userId==this.userService.currentUser.id)
+    return this.data.filter(todo => todo.userId==this.userService.currentUser.id)
   }
 }
 

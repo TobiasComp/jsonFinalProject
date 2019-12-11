@@ -1,25 +1,66 @@
+<!-- <div class="page-content">
+    <select name="" id="" (change)="choice($event)">
+        <option value="byUser">ByUser</option>
+        <option value="all">All</option>
+    </select>
 
-<select name="" id="" (change)="choice($event)">
-    <option value="byUser">ByUser</option>
-    <option value="all">All</option>
-</select>
-
-<div *ngIf="display=='byUser'; else allTodos">
-    <ul *ngIf="todos">
-        <li *ngFor="let todo of todos; index as i ">
-            {{ i }}: {{todo.title}}
-        </li>
-    </ul>
-    <button (click)="addTodoForm()">Add</button>
-</div>
-
-<ng-template #allTodos>
-    <div *ngIf="todoService.todos ">
-        <ul>
-            <li *ngFor="let todo of todoService.todos; index as i">
-                {{ i }}: {{ todo.title }}
+    <div *ngIf="display=='byUser'; else allTodos">
+        <ul *ngIf="todos">
+            <li *ngFor="let todo of todos; index as i ">
+                {{ i }}: {{todo.title}}
             </li>
         </ul>
+        <button (click)="addTodoForm()">Add</button>
     </div>
-</ng-template>
 
+    <ng-template #allTodos>
+        <div *ngIf="todoService.data ">
+            <ul>
+                <li *ngFor="let todo of todoService.data; index as i">
+                    {{ i }}: {{ todo.title }}
+                </li>
+            </ul>
+        </div>
+    </ng-template>
+</div> -->
+
+<div class="page-content">
+        <!-- <select name="" id="" (change)="choice($event)">
+            <option value="byUser">ByUser</option>
+            <option value="all">All</option>
+        </select> -->
+        <mat-form-field (change)="choice($event)">
+            <mat-label>Sort By</mat-label>
+            <select matNativeControl required>
+                <option value="byUser">By User</option>
+                <option value="all">All</option>            
+            </select>
+        </mat-form-field>
+        
+        <div *ngIf="display=='byUser'; else allTodos">
+            <mat-list *ngIf="todos">
+                <span *ngFor="let todo of todos; index as i ">
+                    <mat-list-item >
+                        TODO # {{ i }}: {{todo.title}}&nbsp;
+                        <mat-checkbox [checked]="todo.completed"></mat-checkbox>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </span>
+            </mat-list>
+            <button (click)="addTodoForm()">Add</button>
+        </div>
+    
+        <!-- This is for all the Todos -->
+        <ng-template #allTodos>
+                <mat-list *ngIf="todoService.data ">
+                        <span *ngFor="let todo of todoService.data ; index as i ">
+                            <mat-list-item >
+                                TODO # {{ i }}: {{todo.title}}&nbsp;
+                                <mat-checkbox [checked]="todo.completed"></mat-checkbox>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                        </span>
+                    </mat-list>
+        </ng-template>
+    </div>
+    

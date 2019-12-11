@@ -6,3 +6,4 @@ body {
 }
 html, body { height: 100%; }
 body {  font-family: Roboto, "Helvetica Neue", sans-serif; }
+.page-content{ padding-top:52px;}

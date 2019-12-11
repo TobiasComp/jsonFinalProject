@@ -8,12 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class BaseServiceService<T> {
 
-  protected data:T[]
+  public data:T[]
   baseApi:string = "https://jsonplaceholder.typicode.com/"
+  myApi:string 
 
-  constructor(public http:HttpClient,private childApi:string) { }
+  constructor(public http:HttpClient,private childApi:string) { 
+    this.myApi = this.baseApi + childApi 
+  }
 
   getData():Observable<T[]>{
-    return this.http.get<T[]>(this.baseApi+this.childApi)
+    return this.http.get<T[]>(this.myApi)
   }
+
 }
+

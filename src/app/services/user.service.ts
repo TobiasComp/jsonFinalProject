@@ -12,11 +12,11 @@ export class UserService extends BaseServiceService<User>{
   
   api:string = "https://jsonplaceholder.typicode.com/users";
   currentUser:User
-  users:Base[]
+  // users:User[]
 
   constructor( __http:HttpClient) {
     super(__http,"users");
-    this.getData().subscribe(data=>this.users = data as User[])  
+    this.getData().subscribe(data=>this.data = data as User[])  
   }
 
 }
