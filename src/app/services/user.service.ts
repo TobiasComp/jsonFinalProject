@@ -8,6 +8,7 @@ import { Base } from '../models/base';
   providedIn: 'root'
 })
 
+
 export class UserService extends BaseServiceService<User>{
   
   api:string = "https://jsonplaceholder.typicode.com/users";
@@ -16,7 +17,11 @@ export class UserService extends BaseServiceService<User>{
 
   constructor( __http:HttpClient) {
     super(__http,"users");
-    this.getData().subscribe(data=>this.data = data as User[])  
+    this.getData().subscribe(data=>{
+      this.data = data as User[] 
+      if (this.localStorageData)
+        this.data = this.data.concat(this.localStorageData)
+    })
   }
 
 }

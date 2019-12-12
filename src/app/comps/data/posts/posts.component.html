@@ -1,1 +1,47 @@
-<p>posts works!</p>
+<div class="page-content">
+    <mat-form-field (change)="choice($event)">
+        <mat-label>Sort By</mat-label>
+        <select matNativeControl required>
+            <option value="byUser">By User</option>
+            <option value="all">All</option>            
+        </select>
+    </mat-form-field>
+    
+    <div *ngIf="display=='byUser'; else allPosts">
+        <!-- <button class="add-button" (click)="addPostForm()"mat-button>Add Todo</button> -->
+
+        <mat-accordion *ngIf="postService.postsByUser">
+                <mat-expansion-panel *ngFor="let post of postService.postsByUser">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{post.title}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            {{post.userId}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                        <app-post [post]="post"></app-post>
+                </mat-expansion-panel>
+            </mat-accordion>
+        
+    </div>
+
+     <ng-template #allPosts>
+            <div *ngIf="postService.data">
+                    <mat-accordion>
+                        <mat-expansion-panel *ngFor="let post of postService.data">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    {{post.title}}
+                                </mat-panel-title>
+                                <mat-panel-description >
+                                    {{post.userId}}
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                                <app-post [post]="post"></app-post>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+    </ng-template> 
+</div>
+

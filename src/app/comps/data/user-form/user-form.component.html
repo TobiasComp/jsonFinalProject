@@ -1,9 +1,12 @@
-<p>user-form works!</p>
 
-
-<form [formGroup]="addUserForm" (ngSubmit)="addUser()">
-
-    name: <input type="text" formControlName="name"><br>
-    username: <input type="text" formControlName="username"><br>
-    <button >Add</button>
-</form>
+<div class="page-content add-user-form ">
+    <form class="form-content" [formGroup]="addUserForm" (ngSubmit)="addUser()">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Your Full Name" formControlName="name">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="UserName" formControlName="username">
+        </mat-form-field><br>  
+        <button mat-button class="add-button">Add</button>
+    </form>
+</div>

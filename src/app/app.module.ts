@@ -16,7 +16,8 @@ import { PhotosComponent } from './comps/data/photos/photos.component';
 import { UserFormComponent } from './comps/data/user-form/user-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatModule } from './modules/material';
-import { TodoFormComponent } from './comps/data/todo-form/todo-form.component'
+import { TodoFormComponent } from './comps/data/todo-form/todo-form.component';
+import { PostComponent } from './comps/data/items/post/post.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { TodoFormComponent } from './comps/data/todo-form/todo-form.component'
     AlbumsComponent,
     PhotosComponent,
     UserFormComponent,
-    TodoFormComponent
+    TodoFormComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

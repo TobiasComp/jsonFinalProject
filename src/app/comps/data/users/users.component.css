@@ -10,3 +10,12 @@ table {
   .mat-cell {
       cursor: pointer;
   }
+
+  #userSearch{
+    height: 33px;
+    font-size:large;
+  }
+
+  .user-page{
+    
+  }

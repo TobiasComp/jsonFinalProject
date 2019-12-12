@@ -9,25 +9,28 @@ import { BaseServiceService } from './base-service.service';
   providedIn: 'root'
 })
 export class TodoService extends BaseServiceService<Todo> {
-  
+  todosByUser:Todo[]
   api:string = "https://jsonplaceholder.typicode.com/todos";
-  // todos:Todo[]
 
   constructor(  __http:HttpClient, private userService:UserService) { 
     super(__http,"todos");
-    this.getData().subscribe(data=>this.data=data as Todo[])
+    this.getData().subscribe(data=>{
+      this.data=data as Todo[]
+      this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
+       if (userService.currentUser){
+        console.log(userService.currentUser);
+        
+         this.getTodosByUser()
+        
+      }
+    })
   }
   
-  // getAllTodos() {
-  //   this.http.get(this.api)
-  //     .subscribe(data => this.todos = data as Todo[])
-  // }
   
-  getTodosByUser():Todo[]{
-    console.log("this.userService.currentUser.id",this.userService.currentUser.id);
-    console.log(this.data.filter(todo => todo.userId==this.userService.currentUser.id));
+  getTodosByUser(){
+   this.todosByUser = this.data.filter(todo => todo.userId==this.userService.currentUser.id)
+    console.log("These are the values of the todosByUser",this.todosByUser);
     
-    return this.data.filter(todo => todo.userId==this.userService.currentUser.id)
   }
 }
 

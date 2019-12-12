@@ -1,7 +1,21 @@
 
+<form class="page-content " [formGroup]="addTodoForm" (ngSubmit)="addTodo()">
 
-<form [formGroup]="addTodoForm" (ngSubmit)="addTodo()">
-
-    todo: <input type="text" formControlName="title"><br>
-    <button >Add</button>
+    Todo: <input type="text" formControlName="title"><br><br>
+    <button mat-button class="add-button">Add</button>
 </form>
+<!-- <div class="example-container">
+        <mat-form-field>
+          <input matInput placeholder="Input">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <textarea matInput placeholder="Textarea"></textarea>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-select placeholder="Select">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> -->

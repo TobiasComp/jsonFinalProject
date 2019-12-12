@@ -21,7 +21,7 @@ export class TodoFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  addTodo(){   
+  addTodo(){       
     // Creating new Todo
     let todo = this.addTodoForm.value    
     todo.id = this.todoService.data.length+1
@@ -29,8 +29,7 @@ export class TodoFormComponent implements OnInit {
     todo.userId = this.userService.currentUser.id
     
     // Pushing into general array 
-    this.todoService.data.push(todo)    
-    
+    this.todoService.addDataItem(todo)
     // redirecting to todos page
     this.router.navigateByUrl("todos")
   }

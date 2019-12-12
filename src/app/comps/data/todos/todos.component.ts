@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  todos:Todo[]
+  // todos:Todo[]
   display:string
 
   constructor(public todoService:TodoService, private userService:UserService,
@@ -21,24 +21,22 @@ export class TodosComponent implements OnInit {
     
     if (this.userService.currentUser){
       this.display = 'byUser'
-      this.todos = this.todoService.getTodosByUser()
-        // .subscribe(data => {          
-        //   this.todos = data as Todo[]
-        // })  
     }
     else  
       this.display = 'all'
   }
 
   choice(ev){
-    
-    
-    // if (this.userService.currentUser)
+     if (this.userService.currentUser){
       this.display = (ev.target.value == 'byUser' ? 'byUser' : 'all');
       console.log("this is the value of display",this.display)
       console.log("this is the current user",this.userService.currentUser);
-      
+      this.todoService.getTodosByUser()  
     }
+    else
+      this.display = 'all'
+    }
+
     addTodoForm(){
       this.router.navigateByUrl("addTodo")
     }

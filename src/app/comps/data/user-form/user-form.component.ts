@@ -26,7 +26,14 @@ export class UserFormComponent implements OnInit {
     
     let user = this.addUserForm.value
     user.id = this.userService.data.length+1
-    this.userService.data.push(user)
+    // let api = this.userService.childApi
+    // let tempArr = 
+    // if (localStorage.getItem(api)){
+    //   JSON.parse(localStorage.getItem(api))
+    // }
+
+    // this.userService.data.push(user)
+    this.userService.addDataItem(user)
     this.router.navigateByUrl("users")
   }
 }

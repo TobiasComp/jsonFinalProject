@@ -1,6 +1,13 @@
 
-<div *ngIf="userService.data" class="page-content">
-    <table mat-table [dataSource]="userService.data" class="mat-elevation-z8" >
+<div *ngIf="userService.data" class="page-content user-page">
+    <button mat-button class="add-button"><label for="userSearch" >Search: </label></button>&nbsp;
+    <input type="text" (input)="userSearch($event)" id="userSearch">&nbsp;
+    <i class="material-icons">search </i>
+    <br><br>
+        
+            
+            
+    <table mat-table [dataSource]="userSearchNameFunction()" class="mat-elevation-z8" >
     <!-- ID Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -28,18 +35,3 @@
 </div>
 
 
-<!-- <div *ngIf="userService.data" class="page-content">
-    <ul>
-        <li *ngFor="let user of userService.data" routerLink='todos'>
-            <span (click)="updateUser(user)">{{ user.name }}</span>
-        </li>
-    </ul>
-</div> -->
-<!-- <div *ngIf="userService.data" class="page-content">
-    <ul>
-        <li *ngFor="let user of userService.data" routerLink='todos'>
-            <span (click)="updateUser(user)">{{ user.name }}</span>
-        </li>
-    </ul>
-</div> -->
-<!-- <button > Add User</button> -->
