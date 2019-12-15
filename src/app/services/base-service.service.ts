@@ -10,18 +10,24 @@ export class BaseServiceService<T> {
   baseApi:string = "https://jsonplaceholder.typicode.com/"
   myApi:string 
   localStorageData:T[]
-  // protected dataSubject:BehaviorSubject<T[]> = new BehaviorSubject<T[]>([])
-  // public data:Observable<T[]> = this.dataSubject.asObservable()
+
+  protected dataSubject:BehaviorSubject<T[]> = new BehaviorSubject<T[]>([])
+  public dataBS:Observable<T[]> = this.dataSubject.asObservable()
   public data:T[]
 
   constructor(public http:HttpClient,public childApi:string) { 
     this.myApi = this.baseApi + childApi 
   }
 
-  getData():Observable<T[]>{
+  // getData():Observable<T[]>{
+  //   if (localStorage.getItem(this.childApi))
+  //     this.localStorageData = JSON.parse(localStorage.getItem(this.childApi))
+  //   return this.http.get<T[]>(this.myApi)
+  // }
+  getData(){
     if (localStorage.getItem(this.childApi))
       this.localStorageData = JSON.parse(localStorage.getItem(this.childApi))
-    return this.http.get<T[]>(this.myApi)
+    this.http.get<T[]>(this.myApi).subscribe(myData=>this.dataSubject.next(myData))
   }
 
   addDataItem(item:T){

@@ -14,14 +14,19 @@ export class TodoService extends BaseServiceService<Todo> {
 
   constructor(  __http:HttpClient, private userService:UserService) { 
     super(__http,"todos");
-    this.getData().subscribe(data=>{
+    // this.getData().subscribe(data=>{
+    //   this.data=data as Todo[]
+    //   this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
+    //    if (userService.currentUser){
+    //      this.getTodosByUser()
+    //   }
+    // })
+    this.getData()
+    this.dataBS.subscribe(data=>{
       this.data=data as Todo[]
       this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
        if (userService.currentUser){
-        console.log(userService.currentUser);
-        
          this.getTodosByUser()
-        
       }
     })
   }

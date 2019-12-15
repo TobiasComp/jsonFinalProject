@@ -1,1 +1,7 @@
-<p>comments works!</p>
+<div class="page-content">
+    <div *ngIf="commentsService.commentsByCurrentPost">
+        <mat-card *ngFor="let comment of commentsService.commentsByCurrentPost ">
+            {{ comment.body }}
+        </mat-card>
+    </div>
+</div>

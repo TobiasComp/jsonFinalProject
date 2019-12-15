@@ -10,16 +10,26 @@ import { HttpClient } from '@angular/common/http';
 export class PostService extends BaseServiceService<Post>{
 
   postsByUser:Post[]
-  constructor(__http:HttpClient, private userService:UserService) { 
+  
+  constructor(__http:HttpClient, private userService:UserService, ) { 
     super(__http,"posts")
-    this.getData().subscribe( d => {
-      this.data = d
+    // this.getData().subscribe( d => {
+    //   this.data = d
+    //   if (localStorage[this.childApi])
+    //     this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
+    //   if (userService.currentUser)
+    //     this.getPostsByUser()
+    // })
+    this.getData()
+    this.dataBS.subscribe(data=>{
+      this.data = data 
       if (localStorage[this.childApi])
         this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
       if (userService.currentUser)
         this.getPostsByUser()
     })
   }
+
   getPostsByUser(){
     this.postsByUser =  this.data.filter(post=>post.userId==this.userService.currentUser.id)
   }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
+import { TodoService } from 'src/app/services/todo.service';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-users',
@@ -10,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'username'];
-  constructor(public userService: UserService, private router:Router) { }
+  constructor(public userService: UserService, private router:Router,
+    private todoService:TodoService, private postService:PostService) { }
   userSearchName: User[]
 
   ngOnInit() {
@@ -19,6 +22,8 @@ export class UsersComponent implements OnInit {
 
   updateUser(userSelection: User){
     this.userService.currentUser = userSelection;
+    this.todoService.getTodosByUser()
+    this.postService.getPostsByUser()
     this.router.navigateByUrl("todos");
   }
 

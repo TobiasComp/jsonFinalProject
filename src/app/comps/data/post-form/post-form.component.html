@@ -1,0 +1,14 @@
+<div class="enclosing-div page-content" > 
+    <mat-card class="enclosing-card">
+        <form class="example-form" (ngSubmit)="addPost()" [formGroup]="postFormGroup">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Title" value="" id="title" formControlName="title">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="">
+                <textarea matInput placeholder="Leave a comment" id="comment"formControlName="body"></textarea>
+            </mat-form-field><br>
+            <button mat-button class="add-button">Add</button >
+        </form>
+    </mat-card>
+</div>

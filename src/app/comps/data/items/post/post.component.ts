@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from 'src/app/models/post';
+import { CommentService } from 'src/app/services/comment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -8,9 +10,13 @@ import { Post } from 'src/app/models/post';
 })
 export class PostComponent implements OnInit {
   @Input() post:Post
-  constructor() { }
+  constructor(private commentService:CommentService,private router:Router) { }
 
   ngOnInit() {
   }
 
+  getCommentsByPost(post:Post){
+    this.commentService.currentPost = post
+    this.router.navigateByUrl("comments");
+  }
 }

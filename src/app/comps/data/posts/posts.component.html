@@ -1,14 +1,16 @@
 <div class="page-content">
+    <!--BY USER OR ALL POSTS-->
     <mat-form-field (change)="choice($event)">
         <mat-label>Sort By</mat-label>
         <select matNativeControl required>
             <option value="byUser">By User</option>
             <option value="all">All</option>            
         </select>
-    </mat-form-field>
-    
+    </mat-form-field><br>
+    <!--POSTS BY USER-->
     <div *ngIf="display=='byUser'; else allPosts">
-        <!-- <button class="add-button" (click)="addPostForm()"mat-button>Add Todo</button> -->
+        <!--ADD POST BUTTON-->
+        <button class="add-button" (click)="addPostForm()"mat-button>Add Post</button>
 
         <mat-accordion *ngIf="postService.postsByUser">
                 <mat-expansion-panel *ngFor="let post of postService.postsByUser">
@@ -25,7 +27,7 @@
             </mat-accordion>
         
     </div>
-
+    <!--ALL POSTS IF NO USER-->
      <ng-template #allPosts>
             <div *ngIf="postService.data">
                     <mat-accordion>

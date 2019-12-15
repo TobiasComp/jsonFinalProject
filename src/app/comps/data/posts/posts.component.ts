@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -12,7 +13,7 @@ export class PostsComponent implements OnInit {
   display:string
   // posts:Post[]
 
-  constructor(private userService:UserService, private postService:PostService) { }
+  constructor(private userService:UserService, private postService:PostService,private router:Router) { }
 
   ngOnInit() {
     if (this.userService.currentUser){
@@ -31,6 +32,10 @@ export class PostsComponent implements OnInit {
       else
         this.display = 'all'
       
-    }
+  }
+  addPostForm(){
+    this.router.navigateByUrl("postForm");
+  }
+
   
 }

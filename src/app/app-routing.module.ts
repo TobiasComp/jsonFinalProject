@@ -5,13 +5,17 @@ import { TodosComponent } from './comps/data/todos/todos.component';
 import { UserFormComponent } from './comps/data/user-form/user-form.component';
 import { TodoFormComponent } from './comps/data/todo-form/todo-form.component';
 import { PostsComponent } from './comps/data/posts/posts.component';
+import { CommentsComponent } from './comps/data/comments/comments.component';
+import { PostFormComponent } from './comps/data/post-form/post-form.component';
 
 const routes: Routes = [
   { path: "users", component:UsersComponent},
   { path: "todos", component:TodosComponent},
   { path: "posts", component:PostsComponent},
   { path: "addUser", component:UserFormComponent},
-  { path: "addTodo", component:TodoFormComponent}
+  { path: "addTodo", component:TodoFormComponent},
+  { path: "comments", component:CommentsComponent},
+  { path: "postForm", component:PostFormComponent},
 ];
 
 @NgModule({
