@@ -24,9 +24,10 @@ export class TodoService extends BaseServiceService<Todo> {
     this.getData()
     this.dataBS.subscribe(data=>{
       this.data=data as Todo[]
-      this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
-       if (userService.currentUser){
-         this.getTodosByUser()
+      if (localStorage[this.childApi])
+        this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
+      if (userService.currentUser){
+        this.getTodosByUser()
       }
     })
   }

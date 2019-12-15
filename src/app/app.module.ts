@@ -19,6 +19,7 @@ import { MatModule } from './modules/material';
 import { TodoFormComponent } from './comps/data/todo-form/todo-form.component';
 import { PostComponent } from './comps/data/items/post/post.component';
 import { PostFormComponent } from './comps/data/post-form/post-form.component';
+import { CommentFormComponent } from './comps/data/comment-form/comment-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { PostFormComponent } from './comps/data/post-form/post-form.component';
     UserFormComponent,
     TodoFormComponent,
     PostComponent,
-    PostFormComponent
+    PostFormComponent,
+    CommentFormComponent
   ],
   imports: [
     BrowserModule,

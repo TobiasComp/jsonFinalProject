@@ -30,6 +30,7 @@ export class TodoFormComponent implements OnInit {
     
     // Pushing into general array 
     this.todoService.addDataItem(todo)
+    this.todoService.getTodosByUser()
     // redirecting to todos page
     this.router.navigateByUrl("todos")
   }

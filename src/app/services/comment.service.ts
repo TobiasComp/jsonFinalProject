@@ -17,7 +17,7 @@ export class CommentService extends BaseServiceService<PostComment>{
     super(__http,"comments") 
     this.getData()
     this.dataBS.subscribe(data=>{
-      this.data = data 
+      this.data = data  
       if (localStorage[this.childApi])
         this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
       
@@ -25,6 +25,8 @@ export class CommentService extends BaseServiceService<PostComment>{
   }
 
   getCommentsByPost(){
-
+    this.commentsByCurrentPost = this.data.filter( comment=>{
+      return this.currentPost.id==comment.postId
+    })
   }
 }

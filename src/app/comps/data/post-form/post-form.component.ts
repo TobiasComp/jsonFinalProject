@@ -29,6 +29,7 @@ export class PostFormComponent implements OnInit {
     // console.log("these are all the posts",this.postService.data);
     newPost.id = this.postService.data.length + 1;
     this.postService.addDataItem(newPost);
+    this.postService.getPostsByUser()
     console.log(this.postService.data);
     console.log(this.postService.postsByUser);
     

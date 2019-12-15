@@ -1,0 +1,27 @@
+<div class="page-content">comment-form works!
+    <div class="original post">
+        <mat-card>
+            {{ commentService.currentPost.title }} <br>
+            {{ commentService.currentPost.body }}
+        </mat-card>
+    </div>
+    <div class="example-container">
+        <form [formGroup]="commentGroupForm" (ngSubmit)="addComment()">
+            <mat-form-field>
+                <input matInput placeholder="*Your Name" formControlName="name">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput placeholder="*Your Email" formControlName="email">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <textarea matInput placeholder="Your Wisdom Goes Here" formControlName="body"></textarea>
+            </mat-form-field><br>
+            <button mat-button class="add-button">Add</button>
+        </form>
+      
+       
+    </div>
+</div>
+
