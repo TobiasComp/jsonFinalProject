@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Album } from 'src/app/models/album';
+import { AlbumService } from 'src/app/services/album.service';
+import { PhotoService } from 'src/app/services/photo.service';
 
 @Component({
   selector: 'app-photos',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotosComponent implements OnInit {
 
-  constructor() { }
+  currentAlbum: Album
+  constructor(private photoService:PhotoService,private albumService:AlbumService) { 
+
+  }
 
   ngOnInit() {
+    if (this.photoService.currentAlbum)
+      this.photoService.getPhotosByAlbum()
   }
 
 }

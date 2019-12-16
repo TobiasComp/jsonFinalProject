@@ -17,6 +17,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     if (this.userService.currentUser){
+      this.postService.getPostsByUser()
       this.display = 'byUser'
     }
     else  

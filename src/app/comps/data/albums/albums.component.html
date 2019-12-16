@@ -1,1 +1,26 @@
-<p>albums works!</p>
+
+<div class="page-content">
+    <!--BY USER OR ALL POSTS-->
+    <mat-form-field (change)="choice($event)">
+        <mat-label>Sort By</mat-label>
+        <select matNativeControl required>
+            <option value="byUser">By User</option>
+            <option value="all">All</option>            
+        </select>
+    </mat-form-field><br>
+
+    <div *ngIf="display=='byUser'; else allAlbums">
+        <div *ngIf="albumService.albumsByUser">
+            <mat-card *ngFor="let album of albumService.albumsByUser" (click)="getPhotos(album)">
+                {{ album.title }}
+            </mat-card>
+        </div>
+    </div>
+    <ng-template #allAlbums>
+        <div *ngIf="albumService.data">
+            <mat-card *ngFor="let album of albumService.data" (click)="getPhotos(album)">
+                {{ album.title}}
+            </mat-card>
+        </div>
+    </ng-template>
+</div>

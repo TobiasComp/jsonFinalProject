@@ -20,6 +20,7 @@ export class TodosComponent implements OnInit {
   ngOnInit() {
     
     if (this.userService.currentUser){
+      this.todoService.getTodosByUser()
       this.display = 'byUser'
     }
     else  

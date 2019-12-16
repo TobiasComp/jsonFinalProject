@@ -1,1 +1,6 @@
 <p>photos works!</p>
+<div>
+    <span *ngFor="let photo of photoService.photosByCurrentAlbum">
+    <img [src]="photo.thumbnailUrl" alt="">
+    </span>
+</div>

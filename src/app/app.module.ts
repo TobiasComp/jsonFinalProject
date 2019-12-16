@@ -20,6 +20,7 @@ import { TodoFormComponent } from './comps/data/todo-form/todo-form.component';
 import { PostComponent } from './comps/data/items/post/post.component';
 import { PostFormComponent } from './comps/data/post-form/post-form.component';
 import { CommentFormComponent } from './comps/data/comment-form/comment-form.component';
+import { LoginComponent } from './comps/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { CommentFormComponent } from './comps/data/comment-form/comment-form.com
     TodoFormComponent,
     PostComponent,
     PostFormComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

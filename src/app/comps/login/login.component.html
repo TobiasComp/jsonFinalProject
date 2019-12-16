@@ -1,0 +1,14 @@
+<p>login works!</p>
+
+<div style="text-align: center;">
+    
+    <label for="user">Username: </label>
+    <input id="user" type="text" [(ngModel)]="user"><br>
+
+    <label for="pass">Password: </label>
+    <input id="pass" type="text" [(ngModel)]="pass"><br>
+
+    <a routerLink="/home" routerLinkActive="active"><button (click)="login()" >Login</button></a>
+    
+
+</div>

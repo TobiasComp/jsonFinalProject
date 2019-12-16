@@ -22,8 +22,8 @@ export class UsersComponent implements OnInit {
 
   updateUser(userSelection: User){
     this.userService.currentUser = userSelection;
-    this.todoService.getTodosByUser()
-    this.postService.getPostsByUser()
+    // this.todoService.getTodosByUser()
+    // this.postService.getPostsByUser()
     // this.albumService.getAlbumsByUser()
     this.router.navigateByUrl("todos");
   }

@@ -8,9 +8,13 @@ import { PostsComponent } from './comps/data/posts/posts.component';
 import { CommentsComponent } from './comps/data/comments/comments.component';
 import { PostFormComponent } from './comps/data/post-form/post-form.component';
 import { CommentFormComponent } from './comps/data/comment-form/comment-form.component';
+import { AlbumsComponent } from './comps/data/albums/albums.component';
+import { PhotosComponent } from './comps/data/photos/photos.component';
+import { LoginComponent } from './comps/login/login.component';
 
 const routes: Routes = [
-  { path:'', component:UsersComponent},
+  { path:'', component:LoginComponent},
+  { path:'login', component:LoginComponent},
   { path: "users", component:UsersComponent},
   { path: "todos", component:TodosComponent},
   { path: "posts", component:PostsComponent},
@@ -19,7 +23,8 @@ const routes: Routes = [
   { path: "comments", component:CommentsComponent},
   { path: "postForm", component:PostFormComponent},
   { path: "commentForm", component:CommentFormComponent},
-
+  { path: "albums", component:AlbumsComponent},
+  { path: "photos", component:PhotosComponent}
 ];
 
 @NgModule({
