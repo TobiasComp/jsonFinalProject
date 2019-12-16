@@ -24,12 +24,9 @@ export class PostFormComponent implements OnInit {
   
   addPost(){
     let newPost = this.postFormGroup.value
-    // console.log(newPost);
     newPost.userId = this.userService.currentUser.id
-    // console.log("these are all the posts",this.postService.data);
     newPost.id = this.postService.data.length + 1;
     this.postService.addDataItem(newPost);
-    this.postService.getPostsByUser()
     console.log(this.postService.data);
     console.log(this.postService.postsByUser);
     

@@ -27,8 +27,8 @@ export class PostsComponent implements OnInit {
   choice(ev){
     
      if (this.userService.currentUser && ev.target.value=='byUser'){
-      this.display = 'byUser' 
-        this.postService.getPostsByUser()
+        this.display = 'byUser' 
+        // this.postService.getPostsByUser()
       }
       else
         this.display = 'all'

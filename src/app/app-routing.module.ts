@@ -11,10 +11,12 @@ import { CommentFormComponent } from './comps/data/comment-form/comment-form.com
 import { AlbumsComponent } from './comps/data/albums/albums.component';
 import { PhotosComponent } from './comps/data/photos/photos.component';
 import { LoginComponent } from './comps/login/login.component';
+import { HomeComponent } from './comps/home/home.component';
 
 const routes: Routes = [
   { path:'', component:LoginComponent},
   { path:'login', component:LoginComponent},
+  { path:"home", component:HomeComponent},
   { path: "users", component:UsersComponent},
   { path: "todos", component:TodosComponent},
   { path: "posts", component:PostsComponent},
