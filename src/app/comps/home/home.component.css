@@ -1,0 +1,18 @@
+.slider-ul, .slider-div, .slider-li{margin:0; padding:0; border:0;width:100%;}
+.slider-li { 
+    position:absolute; 
+    height: 0;
+    margin-left: -110%;
+    transition: all 1s;}
+.slider-div { position: relative; height: 180px;}
+.show { width: 100%; position: absolute; height:100px; margin-left:0; transition: all 1s;}
+/* .hide { position:absolute; 
+    height: 0;
+    margin-left: 110%;
+    transition: all 1s;} */
+.posts-title-div{ }
+img {
+    width:100%;
+    height: 180px;
+
+}

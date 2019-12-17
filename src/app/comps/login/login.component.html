@@ -1,15 +1,28 @@
 
-
-<div class="example-container page-content">
+<div class="page-content" *ngIf="userService.data">
+    <!-- <mat-form-field (change)="choice($event)">
+        <mat-label>Choose User</mat-label>
+        <select matNativeControl required>
+            <option *ngFor="let user of userService.data" [value]="user.username">{{user.username}}</option>                      
+        </select>
+    </mat-form-field><br> -->
+</div>
+<div class="example-container ">
     <form [formGroup]="loginFormGroup">
         <span class="login-form">
-        <mat-form-field>
-            <input matInput placeholder="Username" formControlName="user">
+        <!-- <mat-form-field>
+            <input matInput placeholder="Username"  formControlName="user">
+        </mat-form-field><br> -->
+        <mat-form-field (change)="choice($event)">
+            <mat-label>Choose User</mat-label>
+            <select matNativeControl required>
+                <option *ngFor="let user of userService.data" [value]="user.username">{{user.username}}</option>                      
+            </select>
         </mat-form-field><br>
         <mat-form-field>
-            <input matInput placeholder="Password" formControlName="pass">
+            <input matInput placeholder="Password" formControlName="pass" type="password">
         </mat-form-field><br>
-        <button mat-button class="add-button" (click)="login()">Login</button>
+        <button mat-button class="add-button" [disabled]="loginFormGroup.invalid" (click)="login()">Login</button>
     </span>
     </form>
   </div>

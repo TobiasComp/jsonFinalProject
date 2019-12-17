@@ -17,16 +17,13 @@ export class UserService extends BaseServiceService<User>{
 
   constructor( __http:HttpClient) {
     super(__http,"users");
-    // this.getData().subscribe(data=>{
-    //   this.data = data as User[] 
-    //   if (this.localStorageData)
-    //     this.data = this.data.concat(this.localStorageData)
-    // })
     this.getData()
     this.dataBS.subscribe(data=>{
+      if (data.length>0){
       this.data = data
       if (this.localStorageData)
         this.data = this.data.concat(this.localStorageData)
+    }
     })
   }
 

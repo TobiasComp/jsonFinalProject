@@ -18,6 +18,7 @@ export class TodosComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit() {
+    console.log(this.userService.currentUser);
     
     if (this.userService.currentUser){
       this.todoService.getTodosByUser()

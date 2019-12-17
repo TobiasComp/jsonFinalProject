@@ -6,6 +6,7 @@
     <a mat-button routerLink="posts">Posts</a>
     <a mat-button routerLink="albums">Albums</a>
     <!-- <a mat-button routerLink="photos">Photos</a> -->
+    <a mat-button *ngIf="userService.currentUser" class="username">{{userService.currentUser.username}}</a>
 </nav>
 
 

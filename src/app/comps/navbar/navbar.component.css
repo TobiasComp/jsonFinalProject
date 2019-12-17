@@ -17,3 +17,8 @@ header{
     padding: 70px 16px 16px;
     color: white;
 }
+.username{
+    align-self: flex-end;
+        margin-right: auto;
+        color: yellowgreen;
+}

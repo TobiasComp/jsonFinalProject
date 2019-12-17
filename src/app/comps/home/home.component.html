@@ -1,1 +1,28 @@
-<p class="page-content">home works!</p>
+<div class="page-content">
+
+
+<div class="slider-div" *ngIf="photoService.lastPhotos">
+    <ul class="slider-ul">
+        <li class="slider-li " *ngFor="let photo of photoService.lastPhotos">
+            <img [src]="photo.thumbnailUrl" alt="">
+        </li>
+    </ul>
+</div>
+
+<div class="last-posts">
+    <mat-accordion *ngIf="postService.lastPosts.length > 0">
+        <mat-expansion-panel *ngFor="let post of postService.lastPosts">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{post.title}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{post.userId}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+                <app-post [post]="post"></app-post>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</div>
+</div>
