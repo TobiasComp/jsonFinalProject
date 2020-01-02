@@ -10,7 +10,7 @@ import { BaseServiceService } from './base-service.service';
 })
 export class TodoService extends BaseServiceService<Todo> {
   todosByUser:Todo[]
-  api:string = "https://jsonplaceholder.typicode.com/todos";
+  api:string = "https://localhost:3000/todos";
 
   constructor(  __http:HttpClient, private userService:UserService) { 
     super(__http,"todos");

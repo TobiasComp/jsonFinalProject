@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 
-export class BaseServiceService<T> {
+export class BaseServiceService<T extends Base> {
 
   
   baseApi:string = "https://jsonplaceholder.typicode.com/"
@@ -44,6 +44,13 @@ export class BaseServiceService<T> {
     }
     else 
       localStorage.setItem(this.childApi,JSON.stringify(item))
+
+    // UPDATE THE DATABASE
+    /* this.http.post<T>(this.childApi, item).subscribe(err=>{
+      console.log();
+      
+    }) */
+    
   }
   
 
