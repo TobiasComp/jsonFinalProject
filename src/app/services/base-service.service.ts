@@ -7,7 +7,9 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class BaseServiceService<T extends Base> {
 
   
-  baseApi:string = "https://jsonplaceholder.typicode.com/"
+/*   baseApi:string = "https://jsonplaceholder.typicode.com/"
+ */  
+  baseApi:string = "http://localhost:3000/"
   myApi:string 
   localStorageData:T[]
 
@@ -25,31 +27,40 @@ export class BaseServiceService<T extends Base> {
   //   return this.http.get<T[]>(this.myApi)
   // }
   getData(){
-    if (localStorage.getItem(this.childApi))
-      this.localStorageData = JSON.parse(localStorage.getItem(this.childApi))
+    /* if (localStorage.getItem(this.childApi))
+      this.localStorageData = JSON.parse(localStorage.getItem(this.childApi)) */
     this.http.get<T[]>(this.myApi).subscribe(myData=>this.dataSubject.next(myData))
   }
 
   addDataItem(item:T){
 
-    // UPDATE THE SERVICE ARRAY
-    this.data.push(item)
+    
 
     // UPDATE THE LOCALSTORAGE
-    let dynamicItems = []
+    /* let dynamicItems = []
     if (localStorage[this.childApi]) {
       dynamicItems = dynamicItems.concat( JSON.parse(localStorage[this.childApi]))
       dynamicItems.push(item);
       localStorage.setItem(this.childApi, JSON.stringify(dynamicItems))
     }
     else 
-      localStorage.setItem(this.childApi,JSON.stringify(item))
+      localStorage.setItem(this.childApi, JSON.stringify(item)) */
 
     // UPDATE THE DATABASE
-    /* this.http.post<T>(this.childApi, item).subscribe(err=>{
+    // example
+    
+    
+    
+    
+    this.http.post<T>("http://localhost:3000/"+ this.childApi, item).subscribe(err=>{
       console.log();
       
-    }) */
+    })
+    // UPDATE THE SERVICE ARRAY
+    let newItem = item;
+    newItem.id = this.data[this.data.length-1].id+1
+    this.data.push(newItem)
+    console.log(this.data);
     
   }
   

@@ -16,8 +16,8 @@ export class AlbumService extends BaseServiceService<Album>{
     this.getData()
     this.dataBS.subscribe(data=>{
       this.data = data 
-      if (localStorage[this.childApi])
-        this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
+      /* if (localStorage[this.childApi])
+        this.data = this.data.concat(JSON.parse(localStorage[this.childApi])) */
       if (userService.currentUser)
         this.getAlbumsByUser()
     })

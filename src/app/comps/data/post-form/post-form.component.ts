@@ -17,7 +17,10 @@ export class PostFormComponent implements OnInit {
     body:['']
   }) 
   constructor(private fb:FormBuilder, private userService:UserService,
-    private postService:PostService,private router:Router) { }
+    private postService:PostService,private router:Router) { 
+      console.log("I reached the post-form component");
+      
+    }
 
   ngOnInit() {
   }
@@ -25,7 +28,7 @@ export class PostFormComponent implements OnInit {
   addPost(){
     let newPost = this.postFormGroup.value
     newPost.userId = this.userService.currentUser.id
-    newPost.id = this.postService.data.length + 1;
+    //newPost.id = this.postService.data.length + 1;
     this.postService.addDataItem(newPost);
     console.log(this.postService.data);
     console.log(this.postService.postsByUser);

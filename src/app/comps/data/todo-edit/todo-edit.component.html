@@ -1,0 +1,29 @@
+<!-- <form action="" *ngIf="myTodo">
+
+    <span>Edit Id number {{myTodo.id}}</span><br><br>
+
+    <label for="todoChecked">completed: </label>
+    <input type="checkbox" [checked]="myTodo.completed" id="completed"><br><br>
+
+    <label for="todoTitle">Todo: </label>
+    <input type="text" [value]="myTodo.title" id="todoTitle"><br><br>
+
+    <button class="add-button" (click)="deleteTodo()">Delete</button>
+    <button class="add-button" (click)="editTodo()">Edit</button>
+</form> -->
+<div class="page-content">
+    <div class="enclosingDiv">
+        <form class="todo-form" [formGroup]="todoFormGroup">
+
+            <span>Edit Id number {{myTodo.id}}</span><br><br>
+
+            <mat-checkbox formControlName="completed" [checked]="myTodo.completed">Check if you completed </mat-checkbox><br><br>
+            <mat-form-field>
+                <textarea matInput placeholder="Todo" formControlName="title" [value]="myTodo.title"></textarea>
+            </mat-form-field>
+            <br><br>
+            <button mat-button class="add-button" (click)="deleteTodo()">Delete</button>&nbsp;&nbsp;&nbsp;
+            <button mat-button class="add-button" (click)="editTodo()">Edit</button>
+        </form>
+    </div>
+</div>

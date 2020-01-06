@@ -18,8 +18,8 @@ export class CommentService extends BaseServiceService<PostComment>{
     this.getData()
     this.dataBS.subscribe(data=>{
       this.data = data  
-      if (localStorage[this.childApi])
-        this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
+      /* if (localStorage[this.childApi])
+        this.data = this.data.concat(JSON.parse(localStorage[this.childApi])) */
       
     })
   }

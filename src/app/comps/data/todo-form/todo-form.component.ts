@@ -24,7 +24,7 @@ export class TodoFormComponent implements OnInit {
   addTodo(){       
     // Creating new Todo
     let todo = this.addTodoForm.value    
-    todo.id = this.todoService.data.length+1
+    //todo.id = this.todoService.data.length+1
     todo.completed = false
     todo.userId = this.userService.currentUser.id
     

@@ -3,11 +3,20 @@ mat-form-field{
 }
 
 
-.add-button {
+/* .add-button {
     background: #3f51b5;
     color: white;
-  }
+  } */
 
   mat-list {
-      width:500px;
+      width:800px;
   }
+  .listItemDiv {
+      display: flex;
+      justify-content: space-between;
+      background-color: lightgrey;
+    }
+    .listItemDiv{
+        width:100%;
+    }
+    

@@ -14,18 +14,25 @@
             <mat-list *ngIf="todoService.todosByUser">
                 <span *ngFor="let todo of todoService.todosByUser; index as i ">
                     <mat-list-item >
-                        {{ i }}: &nbsp;<mat-checkbox [checked]="todo.completed"></mat-checkbox>
-                        &nbsp; {{todo.title}}&nbsp;
+                        <div class="listItemDiv">
+                            <div>
+                                {{ i }}: &nbsp;<mat-checkbox  [checked]="todo.completed" (change)="changeCompleted($event, todo.id)"></mat-checkbox>
+                                &nbsp; {{todo.title}}&nbsp;
+                            </div>
+                            <div>
+
+                                <button class="add-button edit-button" mat-button (click)="editTodo($event,todo.id)">Edit</button>
+                            </div>
+                        </div>
                     </mat-list-item>
                     <mat-divider></mat-divider>
                 </span>
             </mat-list>
         </div>
-    
         <!-- This is for all the Todos -->
         <ng-template #allTodos>
                 <mat-list *ngIf="todoService.data ">
-                        <span *ngFor="let todo of todoService.data ; index as i ">
+                        <span  *ngFor="let todo of todoService.data ; index as i ">
                             <mat-list-item >
                                       {{ i }}: &nbsp;<mat-checkbox [checked]="todo.completed"></mat-checkbox>
                                  &nbsp; {{todo.title}}&nbsp;

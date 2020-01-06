@@ -13,7 +13,10 @@ export class PostsComponent implements OnInit {
   display:string
   // posts:Post[]
 
-  constructor(private userService:UserService, private postService:PostService,private router:Router) { }
+  constructor(private userService:UserService, private postService:PostService,private router:Router) {
+    console.log("This is the postservice which seems to be empty",postService);
+    
+   }
 
   ngOnInit() {
     if (this.userService.currentUser){

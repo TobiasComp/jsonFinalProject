@@ -23,7 +23,7 @@ export class CommentFormComponent implements OnInit {
 
   addComment(){
     let newComment = this.commentGroupForm.value
-    newComment.id = this.commentService.data.length+1
+    //newComment.id = this.commentService.data.length+1
     newComment.postId = this.commentService.currentPost.id
     console.log(newComment);
     console.log(this.commentService.data);

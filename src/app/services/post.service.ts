@@ -7,19 +7,20 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PostService extends BaseServiceService<Post>{
 
   postsByUser:Post[]
   lastPosts:Post[] = []
   constructor(__http:HttpClient, private userService:UserService, ) { 
-    super(__http,"posts")
+    super(__http,"posts1s")
     this.getData()
     this.dataBS.subscribe(data=>{
       if (data.length>0) {
         
         this.data = data 
-        if (this.localStorageData)
-          this.data = this.data.concat(this.localStorageData)
+        /* if (this.localStorageData)
+          this.data = this.data.concat(this.localStorageData) */
         if (userService.currentUser)
           this.getPostsByUser()
       

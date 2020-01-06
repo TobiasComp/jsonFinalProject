@@ -21,11 +21,21 @@ export class UserService extends BaseServiceService<User>{
     this.dataBS.subscribe(data=>{
       if (data.length>0){
         this.data = data
-      if (this.localStorageData)
-        this.data = this.data.concat(this.localStorageData)
+     /*  if (this.localStorageData)
+        this.data = this.data.concat(this.localStorageData) */
     }
     })
   }
+
+  /* addDataItem(item:User){
+    console.log("this is the item");
+    
+    this.http.post<User>("http://localhost:3000/users", item).subscribe(err=>{
+      console.log();
+      
+    })
+
+  } */
 
 }
 

@@ -21,6 +21,8 @@ import { PostComponent } from './comps/data/items/post/post.component';
 import { PostFormComponent } from './comps/data/post-form/post-form.component';
 import { CommentFormComponent } from './comps/data/comment-form/comment-form.component';
 import { LoginComponent } from './comps/login/login.component';
+import { TodosBackboneComponent } from './comps/data/todos-backbone/todos-backbone.component';
+import { TodoEditComponent } from './comps/data/todo-edit/todo-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,9 @@ import { LoginComponent } from './comps/login/login.component';
     PostComponent,
     PostFormComponent,
     CommentFormComponent,
-    LoginComponent
+    LoginComponent,
+    TodosBackboneComponent,
+    TodoEditComponent
   ],
   imports: [
     BrowserModule,

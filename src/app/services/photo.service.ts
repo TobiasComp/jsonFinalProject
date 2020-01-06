@@ -20,8 +20,8 @@ export class PhotoService extends BaseServiceService<Photo>{
     this.dataBS.subscribe(data=>{
       if (data.length>0){
       this.data = data  
-      if (localStorage[this.childApi])
-        this.data = this.data.concat(JSON.parse(localStorage[this.childApi]))
+      /* if (localStorage[this.childApi])
+        this.data = this.data.concat(JSON.parse(localStorage[this.childApi])) */
       
       this.getLastPhotos(10);
       }

@@ -1,0 +1,35 @@
+<div class="bodyDiv page-content" *ngIf="todoService.todosByUser">
+<div id="todoapp">
+    <header>
+      <h1>Todos</h1>
+      <input id="new-todo" type="text" placeholder="What needs to be done?" (keypress)="addTodo($event)">
+    </header>
+
+    <section id="main">
+      <input id="toggle-all" type="checkbox">
+      <label for="toggle-all">Mark all as complete</label>
+      <ul class="todo-list" >
+        <li *ngFor="let todo of todoService.todosByUser">
+            <div class="view">
+                <input type="checkbox" (click)="editTodo( $event, todo.id)" (loadeddata)="updateCheckboxes($event,todo.completed)"class="checkboxes" >
+                <label (dblclick)="editTodoTitle($event, todo.id)">{{todo.title}}</label>
+
+                <a class="destroy" (click)="deleteTodo($event, todo.id)"></a>
+
+            </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <div id="instructions">
+    Double-click to edit a todo.
+  </div>
+
+  <div id="credits">
+    Created by
+    <br />
+    <a href="">Tuvia Epstein</a>.
+
+  </div>
+</div>
