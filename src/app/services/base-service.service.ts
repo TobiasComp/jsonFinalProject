@@ -33,9 +33,6 @@ export class BaseServiceService<T extends Base> {
   }
 
   addDataItem(item:T){
-
-    
-
     // UPDATE THE LOCALSTORAGE
     /* let dynamicItems = []
     if (localStorage[this.childApi]) {
@@ -46,22 +43,20 @@ export class BaseServiceService<T extends Base> {
     else 
       localStorage.setItem(this.childApi, JSON.stringify(item)) */
 
+    // SAMPLE CODE TO TEST THE LOOPBACK API
+    this.http.get<T>("http://localhost:3000/"+this.childApi+"?filter[where][completed]=0")
+      .subscribe(data=>console.log(data)
+      )
     // UPDATE THE DATABASE
     // example
-    
-    
-    
-    
-    this.http.post<T>("http://localhost:3000/"+ this.childApi, item).subscribe(err=>{
-      console.log();
-      
-    })
+    this.http.post<T>("http://localhost:3000/"+ this.childApi, item).subscribe(value=>{
+      console.log(value);
+    },error=>{console.log(error)}
+    )
     // UPDATE THE SERVICE ARRAY
     let newItem = item;
     newItem.id = this.data[this.data.length-1].id+1
     this.data.push(newItem)
-    console.log(this.data);
-    
   }
   
 
