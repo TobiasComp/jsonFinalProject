@@ -14,6 +14,7 @@ import { LoginComponent } from './comps/login/login.component';
 import { HomeComponent } from './comps/home/home.component';
 import { TodosBackboneComponent } from './comps/data/todos-backbone/todos-backbone.component';
 import { TodoEditComponent } from './comps/data/todo-edit/todo-edit.component';
+import { PostEditComponent } from './comps/data/post-edit/post-edit.component';
 
 const routes: Routes = [
   { path:'', component:LoginComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: "albums", component:AlbumsComponent},
   { path: "photos", component:PhotosComponent},
   { path: "todosBackbone", component:TodosBackboneComponent},
+  { path: "editPost/:id", component:PostEditComponent},
 
 ];
 
