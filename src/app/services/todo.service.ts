@@ -29,12 +29,13 @@ export class TodoService extends BaseServiceService<Todo> {
     })
   }
   
-  // PATCH (Click on the completed box)
+  
   getTodosByUser(){
    this.todosByUser = this.data.filter(todo => todo.userId==this.userService.currentUser.id)
     //console.log("These are the values of the todosByUser",this.todosByUser);  
   }
 
+  // PATCH (Click on the completed box)
   changeCompleted(checkedStatus, id){
     this.http.patch(this.api+id,{completed:checkedStatus}).subscribe(res=>{
       console.log("This is the response",res);
@@ -42,26 +43,24 @@ export class TodoService extends BaseServiceService<Todo> {
     if (err)
       console.log("an error has occured",err);
     })
-  
-}
+  }
 
 // DELETE REQUEST
-deleteTodo(id){
-  
+ deleteTodo(id){
   let index = 0;
-  this.http.delete(this.api+id).subscribe(res=>{
-    this.data.forEach(todo=>{
-      if (todo.id==id) 
-        this.data.splice(index,1)
-      index++;
-    })
-    this.getTodosByUser()
+  this.deleteItem(id).subscribe(res=>{
+     this.data.forEach(todo=>{
+       if (todo.id==id) 
+         this.data.splice(index,1)
+       index++;
+     })
+     this.getTodosByUser()
 
-  },err=>{
-    if (err)
-      console.log("an error has occured",err);
-  })
-}
+   },err=>{
+     if (err)
+       console.log("an error has occured",err);
+   })
+  }
 
 // PUT REQUEST
 editTodo(editedTodo){

@@ -6,19 +6,19 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 export class BaseServiceService<T extends Base> {
 
-  
-/*   baseApi:string = "https://jsonplaceholder.typicode.com/"
- */  
-  baseApi:string = "http://localhost:3000/"
-  myApi:string 
-  localStorageData:T[]
 
-  protected dataSubject:BehaviorSubject<T[]> = new BehaviorSubject<T[]>([])
-  public dataBS:Observable<T[]> = this.dataSubject.asObservable()
-  public data:T[]
+  /*   baseApi:string = "https://jsonplaceholder.typicode.com/"
+   */
+  baseApi: string = "http://localhost:3000/"
+  myApi: string
+  localStorageData: T[]
 
-  constructor(public http:HttpClient,public childApi:string) { 
-    this.myApi = this.baseApi + childApi 
+  protected dataSubject: BehaviorSubject<T[]> = new BehaviorSubject<T[]>([])
+  public dataBS: Observable<T[]> = this.dataSubject.asObservable()
+  public data: T[]
+
+  constructor(public http: HttpClient, public childApi: string) {
+    this.myApi = this.baseApi + childApi
   }
 
   // getData():Observable<T[]>{
@@ -26,13 +26,13 @@ export class BaseServiceService<T extends Base> {
   //     this.localStorageData = JSON.parse(localStorage.getItem(this.childApi))
   //   return this.http.get<T[]>(this.myApi)
   // }
-  getData(){
+  getData() {
     /* if (localStorage.getItem(this.childApi))
       this.localStorageData = JSON.parse(localStorage.getItem(this.childApi)) */
-    this.http.get<T[]>(this.myApi).subscribe(myData=>this.dataSubject.next(myData))
+    this.http.get<T[]>(this.myApi).subscribe(myData => this.dataSubject.next(myData))
   }
 
-  addDataItem(item:T){
+  addDataItem(item: T) {
     // UPDATE THE LOCALSTORAGE
     /* let dynamicItems = []
     if (localStorage[this.childApi]) {
@@ -44,21 +44,28 @@ export class BaseServiceService<T extends Base> {
       localStorage.setItem(this.childApi, JSON.stringify(item)) */
 
     // SAMPLE CODE TO TEST THE LOOPBACK API
-    this.http.get<T>("http://localhost:3000/"+this.childApi+"?filter[where][completed]=0")
-      .subscribe(data=>console.log(data)
-      )
+    // this.http.get<T>("http://localhost:3000/"+this.childApi+"?filter[where][completed]=0")
+    //   .subscribe(data=>console.log(data)
+    //   )
+
+
     // UPDATE THE DATABASE
     // example
-    this.http.post<T>("http://localhost:3000/"+ this.childApi, item).subscribe(value=>{
+    this.http.post<T>(this.baseApi + this.childApi, item).subscribe(value => {
       console.log(value);
-    },error=>{console.log(error)}
+    }, error => { console.log(error) }
     )
     // UPDATE THE SERVICE ARRAY
     let newItem = item;
-    newItem.id = this.data[this.data.length-1].id+1
+    newItem.id = this.data[this.data.length - 1].id + 1
     this.data.push(newItem)
   }
-  
+
+
+
+  // DELETE ITEM BY ID
+  deleteItem(id) {
+    return this.http.delete(this.baseApi + this.childApi + "/" + id)
+  }
 
 }
-

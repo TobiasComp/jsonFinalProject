@@ -1,0 +1,17 @@
+<div class="page-content">
+    <p>post-edit works!!</p>
+    <div class="enclosingDiv">
+        <form class="post-form" [formGroup]="postFormGroup">
+
+            <span>Edit Id number {{myPost.id}}</span><br><br>
+
+            <mat-form-field>
+                <textarea matInput placeholder="Post Title" formControlName="title" [value]="myPost.title"></textarea>
+                <textarea matInput placeholder="Post Body" formControlName="body" [value]="myPost.body"></textarea>
+            </mat-form-field>
+            <br><br>
+            <button mat-button class="add-button" (click)="deletePost()">Delete</button>&nbsp;&nbsp;&nbsp;
+            <button mat-button class="add-button" (click)="editPost()">Edit</button>
+        </form>
+    </div>
+</div>

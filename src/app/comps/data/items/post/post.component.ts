@@ -27,4 +27,7 @@ export class PostComponent implements OnInit {
     this.router.navigateByUrl("commentForm");
   }
  
+  editPost(post:Post){
+    this.router.navigateByUrl("editPost/"+post.id);
+  }
 }
