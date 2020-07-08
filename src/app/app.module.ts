@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-
+import { StoreModule } from '@ngrx/store';
 import { NavbarComponent } from './comps/navbar/navbar.component';
 import { HomeComponent } from './comps/home/home.component';
 import { UsersComponent } from './comps/data/users/users.component';
@@ -24,6 +24,7 @@ import { LoginComponent } from './comps/login/login.component';
 import { TodosBackboneComponent } from './comps/data/todos-backbone/todos-backbone.component';
 import { TodoEditComponent } from './comps/data/todo-edit/todo-edit.component';
 import { PostEditComponent } from './comps/data/post-edit/post-edit.component';
+import { userReducer } from './services/redux/user.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { PostEditComponent } from './comps/data/post-edit/post-edit.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatModule
+    MatModule,
+    StoreModule.forRoot({user_list: userReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
 import { TodoService } from 'src/app/services/todo.service';
 import { PostService } from 'src/app/services/post.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-users',
@@ -11,10 +12,17 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  
   displayedColumns: string[] = ['id', 'name', 'username'];
-  constructor(public userService: UserService, private router:Router,
-    private todoService:TodoService, private postService:PostService) { }
   userSearchName: User[]
+
+
+  constructor(public userService: UserService, private router:Router,
+    private todoService:TodoService, private postService:PostService,
+    private store: Store<{ users: {users: User[]} }>) {
+      this.userService.data = this.store.select('user_list')
+     }
+  
 
   ngOnInit() {
 
